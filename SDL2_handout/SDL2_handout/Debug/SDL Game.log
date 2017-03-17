@@ -1,0 +1,10 @@
+﻿  ModuleWindow.cpp
+c:\users\davidls4\downloads\sdl2_handout\sdl2_handout\modulewindow.cpp(6): warning C4005: 'SCREEN_WIDTH': macro redefinition
+  c:\users\davidls4\downloads\sdl2_handout\sdl2_handout\globals.h(20): note: see previous definition of 'SCREEN_WIDTH'
+c:\users\davidls4\downloads\sdl2_handout\sdl2_handout\modulewindow.cpp(7): warning C4005: 'SCREEN_HEIGHT': macro redefinition
+  c:\users\davidls4\downloads\sdl2_handout\sdl2_handout\globals.h(21): note: see previous definition of 'SCREEN_HEIGHT'
+  Main.cpp
+  Application.cpp
+  Generating Code...
+  SDL Game.vcxproj -> C:\Users\davidls4\Downloads\SDL2_handout\SDL2_handout\Debug\SDL2 Handout.exe
+  SDL Game.vcxproj -> C:\Users\davidls4\Downloads\SDL2_handout\SDL2_handout\Debug\SDL2 Handout.pdb (Full PDB)
