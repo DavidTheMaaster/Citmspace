@@ -1,7 +1,7 @@
-﻿  j1Map.cpp
+﻿  j1App.cpp
   Generating Code...
   Skipping... (no relevant changes detected)
   j1Scene.cpp
-  j1App.cpp
-  Motor2D.vcxproj -> C:\Users\davidls4\Desktop\Dev_class5_handout\Debug\Motor 2D.exe
-  Motor2D.vcxproj -> C:\Users\davidls4\Desktop\Dev_class5_handout\Debug\Motor 2D.pdb (Partial PDB)
+  j1Map.cpp
+  Motor2D.vcxproj -> C:\Users\davidls4\Documents\GitHub\Citmspace\Dev_class5_handout\Debug\Motor 2D.exe
+  Motor2D.vcxproj -> C:\Users\davidls4\Documents\GitHub\Citmspace\Dev_class5_handout\Debug\Motor 2D.pdb (Partial PDB)

@@ -22,7 +22,6 @@ bool j1Map::Awake(pugi::xml_node& config)
 	bool ret = true;
 
 	folder.create(config.child("folder").child_value());
-
 	return ret;
 }
 
@@ -30,8 +29,29 @@ void j1Map::Draw()
 {
 	if(map_loaded == false)
 		return;
+	p2List_item<MapLayer*>* item_layer = data.layerdata.start;
+	p2List_item<TileSet*>* item_tileset = data.tilesets.start;
 
 	// TODO 5: Prepare the loop to draw all tilesets + Blit
+
+	for (int x = 0; item_layer->data->width > x ; x++) {
+
+		for (int y = 0; item_layer->data->height > y ; y++) {
+			int tile = 0;
+			if (x > item_layer->data->width || y > item_layer->data->height) {
+				tile = 0;
+			}
+			else {
+				tile = item_layer->data->Get(x,y);
+			}
+			if (tile > 0) {
+				iPoint pos = MapToWorld(x, y);
+				SDL_Rect rect = item_tileset->data->GetTileRect(tile);
+				App->render->Blit(item_tileset->data->texture, pos.x, pos.y, 0);
+			}
+			
+		}
+	}
 
 		// TODO 9: Complete the draw function
 
@@ -85,6 +105,7 @@ bool j1Map::CleanUp()
 		RELEASE(i->data);
 		i = i->next;
 	}
+
 
 
 
@@ -330,7 +351,7 @@ bool j1Map::LoadLayer(pugi::xml_node& node, MapLayer* layer)
 	layer->height = node.attribute("height").as_uint();
 	layer->width = node.attribute("width").as_uint();
 	for (pugi::xml_node dataLayer = node.child("data").child("tile"); dataLayer; dataLayer.next_sibling("tile")) {
-		layer->layers.add(dataLayer.attribute("gid").as_uint());
+		layer->gid.add(dataLayer.attribute("gid").as_uint());
 		LOG("Layer %i", dataLayer.attribute("gid").as_int());
 	}
 

@@ -13,15 +13,26 @@
 struct MapLayer
 {
 	p2SString name = nullptr;
-	p2List<unsigned int> layers;
+	p2List<unsigned int> gid;
 	uint width = 0, height = 0;
 
 	~MapLayer() 
 	{
-		layers.clear();
+		gid.clear();
 	}
+
+	inline uint Get(int x, int y) const {
+		if (x < 0 || y<0 || (y*width + x) > gid.count()) {
+			return 0;
+		}
+		else {
+			return gid[(y*width + x)];
+		}
+	}
+
 };
 	// TODO 6: Short function to get the value of x,y
+
 
 
 
@@ -101,7 +112,7 @@ private:
 	bool LoadTilesetDetails(pugi::xml_node& tileset_node, TileSet* set);
 	bool LoadTilesetImage(pugi::xml_node& tileset_node, TileSet* set);
 	// TODO 3: Create a method that loads a single laye
-	// bool LoadLayer(pugi::xml_node& node, MapLayer* layer);
+//	bool LoadLayer(pugi::xml_node& node, MapLayer* layer);
 
 public:
 
